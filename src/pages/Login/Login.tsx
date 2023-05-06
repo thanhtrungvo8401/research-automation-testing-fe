@@ -19,6 +19,7 @@ const Login = ({ setUserState }: any) => {
       [name]: value,
     });
   };
+  
   const validateForm = (values: any) => {
     const error: any = {};
     const regex = /^[^\s+@]+@[^\s@]+\.[^\s@]{2,}$/i;
@@ -52,6 +53,7 @@ const Login = ({ setUserState }: any) => {
       });
     }
   }, [formErrors]);
+  
   return (
     <div className={loginstyle.login}>
       <form>
