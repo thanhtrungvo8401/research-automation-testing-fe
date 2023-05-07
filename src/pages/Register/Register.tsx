@@ -4,6 +4,7 @@ import registerstyle from "./Register.module.css";
 import axios from "axios";
 
 import { useNavigate, NavLink } from "react-router-dom";
+import Dropdown from "../../components/DropDown";
 const Register = () => {
   const navigate = useNavigate();
 
@@ -76,6 +77,14 @@ const Register = () => {
       <div className={registerstyle.register}>
         <form>
           <h1>Create your account</h1>
+
+          <Dropdown options={[
+            { label: 'Label1', value: 'Value1' },
+            { label: 'Label2', value: 'Value2' },
+            { label: 'Label3', value: 'Value3' },
+            { label: 'Label4', value: 'Value4' }
+          ]} />
+
           <input
             type="text"
             name="fname"
