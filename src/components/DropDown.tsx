@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function Dropdown({ options, onSelect }: any) {
+function Dropdown({ options = [], onSelect }: any) {
   const [selectedOption, setSelectedOption] = useState<null | { value: string, label: string }>(null);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -22,7 +22,7 @@ function Dropdown({ options, onSelect }: any) {
         <ul className="dropdown-menu" style={{ listStyleType: 'none', margin: 0, padding: 0  }} >
           {options.map((option: any) => (
             <li key={option.value} onClick={() => handleSelect(option)} style={{ background: 'rgba(0,0,0,0.1)', padding: '0.2rem', margin: '2px 0' }}>
-              {option.label}
+              asdf {option.label}
             </li>
           ))}
         </ul>
