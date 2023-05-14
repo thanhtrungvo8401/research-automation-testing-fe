@@ -3,6 +3,7 @@ import basestyle from "../Base.module.css";
 import loginstyle from "./Login.module.css";
 import axios from "axios";
 import { useNavigate, NavLink } from "react-router-dom";
+
 const Login = ({ setUserState }: any) => {
   const navigate = useNavigate();
   const [formErrors, setFormErrors] = useState<any>({});
@@ -19,7 +20,7 @@ const Login = ({ setUserState }: any) => {
       [name]: value,
     });
   };
-  
+
   const validateForm = (values: any) => {
     const error: any = {};
     const regex = /^[^\s+@]+@[^\s@]+\.[^\s@]{2,}$/i;
@@ -45,15 +46,15 @@ const Login = ({ setUserState }: any) => {
 
   useEffect(() => {
     if (Object.keys(formErrors).length === 0 && isSubmit) {
-      console.log(user);
       axios.post("http://localhost:9002/login", user).then((res) => {
-        alert(res.data.message);
-        setUserState(res.data.user);
-        navigate("/", { replace: true });
-      });
+        setUserState(res.data);
+        navigate("/");
+      }).catch((err: any) => {
+        alert(err.error)
+      })
     }
   }, [formErrors]);
-  
+
   return (
     <div className={loginstyle.login}>
       <form>
