@@ -1,7 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import Dropdown from './DropDown';
 import userEvent from '@testing-library/user-event';
-import { act } from 'react-dom/test-utils';
 
 describe("UT-Dropdown" , () => {
   const options = [
@@ -48,5 +47,4 @@ describe("UT-Dropdown" , () => {
     expect(list).not.toBeInTheDocument();
     expect(onSelectHandler).toBeCalledWith(selectedItem)
   })
-
 })
